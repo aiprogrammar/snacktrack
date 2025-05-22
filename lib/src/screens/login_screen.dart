@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _pinController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,38 +25,40 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 48),
+              Center(
+                child: Image.network(
+                  'https://cdn.iconscout.com/icon/free/png-256/free-qr-code-scan-1851050-1569154.png',
+                  height: 120,
+                  width: 120,
+                ),
+              ),
+              const SizedBox(height: 48),
               Text(
-                'Welcome to\nSnackTrack',
+                'Welcome Back!',
                 style: Theme.of(context).textTheme.displayLarge,
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 8),
               Text(
-                'Sign in to continue',
+                'Sign in to continue scanning',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.grey[600],
                     ),
               ),
-              const SizedBox(height: 48),
+              const SizedBox(height: 32),
               TextField(
                 controller: _emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Email',
-                  prefixIcon: Icon(
-                    Icons.email_outlined,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+                  prefixIcon: Icon(Icons.email_outlined),
                 ),
                 keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: _pinController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: '4-Digit PIN',
-                  prefixIcon: Icon(
-                    Icons.lock_outline,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+                  prefixIcon: Icon(Icons.lock_outline),
                   counterText: '',
                 ),
                 keyboardType: TextInputType.number,
@@ -73,13 +76,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                     if (success && mounted) {
                       Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()),
+                        MaterialPageRoute(builder: (context) => const HomeScreen()),
                       );
                     }
                   }
                 },
-                child: const Text('Login'),
+                child: const Text('Sign In'),
               ),
             ],
           ),
