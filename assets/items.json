@@ -1,0 +1,5 @@
+{
+  "snickers": { "name": "Snickers", "price": 100 },
+  "lays": { "name": "Lays Chips", "price": 80 },
+  "coke": { "name": "Coca-Cola", "price": 120 }
+}
